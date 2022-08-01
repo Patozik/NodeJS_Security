@@ -1,0 +1,22 @@
+<div class="mb-5">
+    <label for="sort" class="h5 form-label">Sortuj według</label>
+        <select name="sort" id="sort" class="form-control">
+            <option value="">Domyślnie</option>
+            <option value="name|asc" <%- query.sort === 'name|asc' ? 'selected' : '' %>>A-Z</option>
+            <option value="name|desc" <%- query.sort === 'name|desc' ? 'selected' : '' %>>Z-A</option>
+            <option value="age|asc" <%- query.sort === 'age|asc' ? 'selected' : '' %>>Wiek (rosnąco)</option>
+            <option value="age|desc" <%- query.sort === 'age|desc' ? 'selected' : '' %>>Wiek (malejąco)</option>
+        </select>
+    <button class="btn btn-primary mt-3">Sortuj</button>
+</div>
+
+<p class="h5 mb-3">Filtruj</p>
+
+<div class="mb-3">
+    <label for="agemin" class="form-label">Wiek (min)</label>
+    <input type="number" class="form-control" value="<%- query.agemin %>" name="agemin" id="agemin">
+</div>
+<div class="mb-3">
+    <label for="agemax" class="form-label">Wiek (max)</label>
+    <input type="number" class="form-control" value="<%- query.agemax %>" name="agemax" id="agemax">
+</div>

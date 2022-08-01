@@ -1,0 +1,10 @@
+
+<h1>To jest strona głowna</h1>
+
+<% if (auth) { %>
+    <p>Witaj na stronie. Zalogowano na konto : </p>
+    <p>Użytkownik : <%- auth.email %></p>
+    <p>ID : <%- auth._id %></p>
+<% } else { %>
+    <p>Witaj na naszej stronie. Zarejestruj się lub zaloguj aby dodawać lub modyfikować użytkowników.</p>
+<% } %>

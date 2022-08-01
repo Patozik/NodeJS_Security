@@ -1,0 +1,39 @@
+<form method="POST" <%- enctype %>>
+    <div class="mb-3">
+      <label for="" class="form-label">Imię</label>
+      <input type="text" name="name" value="<%= form.name %>" class="form-control <%- errors?.name ? 'is-invalid' : '' %>" required>
+      <div class="form-text">Przynajmniej 3 znaki</div>
+      <% if (errors?.name) { %>
+        <div class="invalid-feedback"><%= errors.name.message %></div>
+      <% } %>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Email</label>
+        <input type="text" name="email" value="<%= form.email %>" class="form-control <%- errors?.email ? 'is-invalid' : '' %>" required>
+        <% if (errors?.email) { %>
+          <div class="invalid-feedback"><%= errors.email.message %></div>
+        <% } %>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Wiek</label>
+        <input type="number" name="age" value="<%= form.age %>" class="form-control <%- errors?.age ? 'is-invalid' : '' %>">
+        <% if (errors?.age) { %>
+          <div class="invalid-feedback"><%= errors.age.message %></div>
+        <% } %>
+    </div>
+    <% if (showFile) { %>
+      <% if (form.image) { %>
+        <div class="row">
+          <div class="col-3">
+            <img src="/uploads/<%- form.image %>" class="img-fluid mb-3" alt="">
+            <a href="/admin/uzytkownicy/<%- form.id %>/usun-zdjecie" class="btn btn-sm btn-danger">Usuń</a>
+          </div>
+        </div>
+      <% } %>
+      <div class="mb-3">
+        <label for="image" class="form-label">Zdjęcie</label>
+          <input type="file" name="image" class="form-control" id="image">
+      </div>
+    <% } %>
+    <button class="btn btn-primary"><%- buttonText %></button>
+  </form>

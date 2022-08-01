@@ -1,0 +1,44 @@
+<h1>Edycja profilu</h1>
+
+<% if (success) { %>
+    <div class="alert alert-success">Dane zostały zmienione</div>
+<% } %>
+
+<form method="POST">
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" name="email" id="email" value="<%= form.email %>" class="form-control <%- errors?.email ? 'is-invalid' : '' %>" required>
+        <% if (errors?.email) { %>
+          <div class="invalid-feedback"><%= errors.email.message %></div>
+        <% } %>
+    </div>
+
+    <div class="mb-3">
+        <label for="password" class="form-label">Hasło</label>
+        <input type="password" name="password" id="password" class="form-control <%- errors?.password ? 'is-invalid' : '' %>">
+        <% if (errors?.password) { %>
+          <div class="invalid-feedback"><%= errors.password.message %></div>
+        <% } %>
+    </div>
+
+    <div class="mb-3">
+        <label for="firstName" class="form-label">Imie</label>
+        <input type="text" name="firstName" id="firstName" value="<%= form.firstName %>" class="form-control <%- errors?.firstName ? 'is-invalid' : '' %>" required>
+        <% if (errors?.firstName) { %>
+          <div class="invalid-feedback"><%= errors.firstName.message %></div>
+        <% } %>
+    </div>
+
+    <div class="mb-3">
+        <label for="lastName" class="form-label">Nazwisko</label>
+        <input type="lastName" name="lastName" id="lastName" value="<%= form.lastName %>" class="form-control <%- errors?.lastName ? 'is-invalid' : '' %>" required>
+        <% if (errors?.lastName) { %>
+          <div class="invalid-feedback"><%= errors.lastName.message %></div>
+        <% } %>
+    </div>
+
+      
+      <button class="btn btn-primary">Zapisz</button>
+
+</form>

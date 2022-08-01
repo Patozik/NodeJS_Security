@@ -1,0 +1,22 @@
+<h1>Logowanie</h1>
+
+<% if (errors) { %>
+    <div class="alert alert-danger">Błędny email lub hasło</div>
+<% } %>
+
+<form method="POST">
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" name="email" id="email" value="<%= form.email %>" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="password" class="form-label">Hasło</label>
+        <input type="password" name="password" id="password" class="form-control" required>
+      </div>
+      
+      <button class="btn btn-primary">Loguj</button>
+
+
+</form>

@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img src="/img/helmetlogo.png" alt="" class="site-logo"/>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link <%- url === '/' && 'active' %>" aria-current="page" href="/">Strona głowna</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <%- url.includes('/uzytkownicy') && 'active' %>" href="/uzytkownicy">Użytkownicy</a>
+          </li>
+          <% if (auth) { %>
+            <li class="nav-item">
+              <a class="nav-link <%- url === '/admin/uzytkownik/dodaj' && 'active' %>" href="/admin/uzytkownik/dodaj">Dodaj użytkownika</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link <%- url === '/admin/profil' && 'active' %>" href="/admin/profil">Profil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/wyloguj">Wyloguj</a>
+            </li>
+          <% } %>
+          <% if (!auth) { %>
+            <li class="nav-item">
+              <a class="nav-link <%- url === '/zarejestruj' && 'active' %>" href="/zarejestruj">Rejestracja</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link <%- url === '/zaloguj' && 'active' %>" href="/zaloguj">Logowanie</a>
+            </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </nav>

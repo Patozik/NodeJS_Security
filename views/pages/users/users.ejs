@@ -1,0 +1,39 @@
+<h1 class="my-3">Użytkownicy</h1>
+<form>
+    <%- include('partials/search')%>
+
+    <div class="row">
+        <div class="col-3">
+            <%- include('partials/sortFilters')%>
+            <a href="/csv" class="btn btn-info">Pobierz CSV</a>
+        </div>
+        <div class="col-9">
+            <% users.forEach(user => { %>
+                <div class="card bg-light mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-3">
+                                <img src="/uploads/<%- user.image %>" alt="" class="img-fluid">
+                            </div>
+                            <div class="col-9">
+                                <p class="h3 mb-3"><%= user.name %> - ( <%= user.email %> )</p>
+                                <p class="mb-3">Wiek: <%= user.age %></p>
+                                <p class="mb-3">CEO: <%= user.auth?.fullName %></p>
+                                <a href="/uzytkownicy/<%= user.id %>" class="btn btn-primary">Zobacz</a>
+                                <a href="/uzytkownicy/<%= user.id %>/szczegoly" class="btn btn-primary">Szczegóły</a>
+                                <% if (auth && auth?._id == user.auth?._id) { %>
+                                    <a href="/admin/uzytkownicy/<%= user.id %>/edytuj" class="btn btn-warning">Edytuj</a>
+                                    <a href="/admin/uzytkownicy/<%= user.id %>/usun"
+                                    onclick="return confirm('Czy jesteś pewny/a ?')"
+                                    class="btn btn-danger">Usuń</a>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+            <% }); %>
+        </div>
+    </div>
+
+    <%- include('partials/pagination')%>
+</form>
